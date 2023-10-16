@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en"><head>  
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <title>Computer Vision Course Project
+  | ECE, Virginia Tech | Fall 2021: ECE 4554/5554</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+<!-- Le styles -->  
+  <link href="css/bootstrap.css" rel="stylesheet">
+<style>
+body {
+padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+}
+.vis {
+color: #3366CC;
+}
+.data {
+color: #FF9900;
+}
+</style>
+  
+<link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements --><!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+</head>
+
+<body>
+<div class="container">
+<div class="page-header">
+
+<!-- Title and Name --> 
+<div>
+<h1>Real-time Forest Fire Detection System using Computer Vision and Deep Learning</h1> 
+<span style="font-size: 20px; line-height: 1.5em;"><strong>Amal Sujith, Nishant Bharali, Naveen Kamal</strong></span><br>
+<span style="font-size: 18px; line-height: 1.5em;">Fall 2023 ECE 5554 Computer Vision: Course Project</span><br>
+<span style="font-size: 18px; line-height: 1.5em;">Virginia Tech</span>
+</div>
+<hr>
+
+<!-- Problem Statement -->
+<h3>Problem Statement</h3>
+
+Forest fires is one of the worst and devastating disasters ever in the world. As per the data from the National Forest Inventory program of FSI, 12.89% of forest area are heavily affected and 58.40% mildly affected by forest fires. We were motivated for a noble cause to tackle the fury of nature. This instigated us to develop a system to detect forest fire and alert the officials within a short span of time to avert a massive outbreak. The objective of this project is to design an accurate and efficient forest fire detection system using computer vision and deep learning techniques such as object detection and image classification. The primary aim of the system is to detect forest fires in real-time through the image analysis and video feeds in outdoor conditions, when deployed in a forest region.
+<br><br>
+
+<!-- Background -->
+<h3>Background</h3>
+Forest fires pose a significant threat to natural ecosystems. The already existing system i.e., MODIS (Satellite Based Imaging) relays the information within a time span of few days in which the entire forest will be burned off. Since the existing system is inaccurate, early detection is critical for timely response and to avert a catastrophic situation. The proposed system aims to leverage recent advancements in computer vision and deep learning.
+<br><br>
+
+<!-- Approach and Workflow -->
+<h3>Approach</h3>
+We will employ convolutional neural network (CNN) models, specifically Faster R-CNN inception integrated in Raspberry Pi 4 for fire detection. These models will be trained on dataset consisting of images of forest fires taken available on NDMA (National Disaster Management Authority of India) website as well as images of normal forest scenes without fires. To improve the model's performance, transfer learning will be used, utilizing pre-trained models like Inception and MobileNet as the base and fine-tuning the classifier and regressor heads for fire detection. Data augmentation techniques such as flipping, rotation, and brightness/contrast variation will be applied to enhance the diversity of the training data. Our model development and experimentation phase will be conducted on a high-performance NVIDIA GPU server to expedite the process. After the optimal model is identified, it will be converted and deployed on devices like the Jetson Nano or Raspberry Pi for real-time inference with fixed wing glider or Tilt Roter V-toll in a simulation. The model will process live video streams from cameras mounted on the glider and output bounding boxes around detected fire regions. Including the <b>flight simulation</b> and <b>detection</b>, we have divided our work into several steps listed below:
+<br><br>
+<ul>
+<li>Coverage Plan</li>
+<li>Indigenous Script using Python DRONEKIT</li>
+<li>Flight simulation presets</li>
+<li>Fixed-wing simulation</li>
+<li>Detection through computer vision.</li>
+<li>Increase the accuracy of prediction.</li>
+</ul>
+
+<!-- Fire Detection Workflow Figure --> 
+<div style="text-align: center;">
+  <img style="height: 350px;" alt="" src="ProjectWorkflow.png">
+  <br><br>
+  <p>Figure 1: Fire Detection Workflow</p>
+  </div>
+
+<br><br>
+<!-- Experiments and Results -->
+<h3>Experiments and results</h3>
+Our research will encompass several key phases:
+<br>
+<ul>
+<li>Model Selection: We will experiment with various CNN-based models, including Faster R-CNN and SSD, on the dataset to determine which is best suited for forest fire detection.</li>
+<li>Hyperparameter Tuning:  We will fine-tune hyperparameters, such as learning rate, batch size, and number of training sets, to optimize the model performance.</li>
+<li>Evaluation Metrics: We will employ metrics like precision, recall, F1-score, and inference time to assess the effectiveness of our models.</li>
+<li>Real-world Testing: The models will be tested on various real world forest fire footage, simulated scenarios or a supervised fire to measure the accuracy.</li>
+</ul>
+Our primary goal is to strike a balance between detection accuracy and inference time. While Faster R-CNN is expected to yield higher accuracy, it may consume more time for inference compared to SSD. We aim to achieve a minimum of 90% precision and recall on the test set. For deployment on devices such as Raspberry Pi 4, the model should operate at a minimum of 5 frames per second on 720p video streams. Comparison between SD Mobilenet V2, RCNN inception V2 with other existing pre-trained models to see the contrast and alterations in accuracy and processing time.
+<br><br>
+
+<!-- Flight Operation Workflow Figure --> 
+<div style="text-align: center;">
+<img style="height: 400px;" alt="" src="ExpectedFlightOperationWorkflow.png">
+<br><br>
+<p>Figure 2: Expected Flight Operation Workflow</p>
+</div>
+<br><br>
+
+<!-- Expected Outcome -->
+<h3>Expected outcome</h3>
+The successful completion of this project will result in a deep learning model for forest fire early detection. The model should be able to provide accuracy above 80% on ideal conditions with a minimum of 60% and the focus on how to overcome the inaccuracy and further limitations. This model can be integrated in existing gliders (UAVs) and surveillance systems, providing timely alerts and intelligence to authorities in the event of a fire outbreak within a short span of time. The system's performance across diverse forest environments and varying weather conditions will be analyzed in detail. The project will be implemented using Python 3 and popular corresponding libraries like PyTorch, OpenCV, and TensorFlow.
+<br><br>
+
+<!-- Limitations and ammendments -->
+<h3>Additional features and current limitations</h3>
+<li>Conditions to find that provide viable alternatives for reduced power consumption.</li>
+<li>To ensure fixed-wing glider (UAV) showcases good flight controls despite windy conditions.</li>
+<li>To look for an efficient AI based model that can consider number of factors for better prediction under diverse conditions.</li>
+<li>To increase the accuracy of predication from higher altitude since the live footage is taken by glider which fly in high altitude.</li>
+<li>To achieve a minimum of 90% precision and recall on the test set.</li>
+
+<br>
+
+<!-- Conclusion -->
+<h3>Conclusion</h3>
+In conclusion, this project aims to tackle the fury of nature by developing an accurate and real-time forest fire early detection system. The combination of computer vision and deep learning will enable the deployment of this system in remote forested areas, enhancing our ability to respond to forest fires swiftly. The resulting model will have an impact on forest fire prevention and management, potentially avoiding a fiery situation and protect natural ecosystems.
+<br><br>
+
+  <hr>
+  <footer> 
+  <p style="font-size: small;">© Nishant Bharali, Amal Sujith, Naveen Kamal</p>
+  </footer>
+</div>
+</div>
+
+<br><br>
+
+</body></html>
